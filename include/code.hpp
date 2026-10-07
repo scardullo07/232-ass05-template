@@ -14,7 +14,9 @@
 /// - double member named 'd'
 /// - char pointer member named 'cPtr'
 union LegacyData {
-    // TODO: Define members here
+    int i;
+    double d;
+    char *cPtr;
 };
 
 /// Converts a LegacyData union to a formatted string based on the active type.
@@ -33,7 +35,9 @@ std::string printLegacyData(LegacyData data, char type);
 /// - Pointer member named 'nextPtr' pointing to structNode
 /// - char member named 'typeData' ('i', 'd', 'c')
 struct structNode {
-    // TODO: Define members here
+    LegacyData value;
+    structNode *nextPtr;
+    char typeData;
 };
 
 /// Manually initializes a structNode with the given data and type.
@@ -56,12 +60,11 @@ structNode* createTwoStructNodes();
 /// YOUR TASK: Define public members (value, nextPtr, typeData) and constructor declaration.
 class classNode {
 public:
-    // TODO: Define members and constructor
-    // LegacyData value;
-    // classNode* nextPtr;
-    // char typeData;
+    LegacyData value;
+    classNode *nextPtr;
+    char typeData;
 
-    // classNode(LegacyData val, char type);
+    classNode(LegacyData val, char type);
 };
 
 /// Creates two dynamically allocated classNode objects linked together.
@@ -78,12 +81,12 @@ classNode* createTwoClassNodes();
 /// YOUR TASK: Define member 'value' of type T, 'nextPtr' of type classNodeT<T>*, and constructor.
 template <typename T>
 class classNodeT {
-// public:
-//     // TODO: Define members and constructor using initializer list
-//     T value;
-//     classNodeT<T>* nextPtr;
+public:
+    T value;
+    classNodeT<T> *nextPtr;
 
-//     classNodeT(T d) : value(d), nextPtr(nullptr) {}
+    classNodeT(T d) : value(d), nextPtr(nullPtr){}
+
 };
 
 /// Creates two dynamically allocated classNodeT<int> objects linked together.
@@ -101,31 +104,31 @@ using ModernData = std::variant<int, double, std::string>;
 /// A modern C++17 linked list node using std::variant for type-safe storage.
 class classNodeVariant {
 public:
-    // ModernData value;
-    // classNodeVariant* nextPtr;
+    ModernData value;
+    classNodeVariant *nextPtr;
 
-    // /// Constructor using member initializer list.
-    // classNodeVariant(ModernData d) : value(d), nextPtr(nullptr) {}
+    classNodeVariant(ModerData d) : value(d), nextPtr(nullptr){}
 };
 
 /// A fully encapsulated linked list manager for classNodeVariant objects.
 /// YOUR TASK: Declare private members (headPtr, counter) and public methods.
 class LinkedList {
-// private:
-//     // TODO: Add headPtr (classNodeVariant*) and counter (int)
+private:
+    classNodeVariant *headPtr;
+    int counter;
 
-// public:
-//     LinkedList();
-//     ~LinkedList();
+public:
+    LinkedList();
+    ~LinkedList();
 
-//     void destroyList();
-//     int addFirst(classNodeVariant* newNodePtr);
-//     int addLast(classNodeVariant* newNodePtr);
-//     int deleteFirst();
-//     int deleteLast();
-//     int deleteValue(ModernData targetValue);
-//     int printList();
-//     int listLength();
+    void destroyList();
+    int addFirst(classNodeVariant* newNodePtr);
+    int addLast(classNodeVariant* newNodePtr);
+    int deleteFirst();
+    int deleteLast();
+    int deleteValue(ModernData targetValue);
+    int printList();
+    int listLength();
 };
 
 #endif
