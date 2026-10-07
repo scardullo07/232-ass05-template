@@ -85,7 +85,7 @@ public:
     T value;
     classNodeT<T> *nextPtr;
 
-    classNodeT(T d) : value(d), nextPtr(nullPtr){}
+    classNodeT(T d) : value(d), nextPtr(nullptr){}
 
 };
 
@@ -107,7 +107,7 @@ public:
     ModernData value;
     classNodeVariant *nextPtr;
 
-    classNodeVariant(ModerData d) : value(d), nextPtr(nullptr){}
+    classNodeVariant(ModernData d) : value(d), nextPtr(nullptr){}
 };
 
 /// A fully encapsulated linked list manager for classNodeVariant objects.

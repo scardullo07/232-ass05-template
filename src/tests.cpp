@@ -203,7 +203,7 @@ void test_linkedList_printList(void)
     std::stringstream buffer;
     std::streambuf* oldCout = std::cout.rdbuf(buffer.rdbuf());
 
-    int res = list.printList();
+    list.printList();
     std::cout.rdbuf(oldCout);
     std::string output = buffer.str();
 

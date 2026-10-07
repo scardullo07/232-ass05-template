@@ -43,7 +43,7 @@ std::string printLegacyData(LegacyData data, char type) {
 
 /// Initializes a structNode with value, type indicator, and nullptr nextPtr.
 void initStructNode(structNode* nPtr, LegacyData val, char type) {
-    if (nPtr == nullPtr){
+    if (nPtr == nullptr){
         return;
     }
     
@@ -123,7 +123,7 @@ classNodeT<int>* createTwoTemplateNodes() {
 // uncomment the following code to implement the LinkedList methods
 
 LinkedList::LinkedList() {
-    headPtr = nullPtr;
+    headPtr = nullptr;
     counter = 0;
 }
 
